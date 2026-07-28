@@ -185,6 +185,8 @@ annotate service.PurchaseRequests with {
     status        @Common.FieldControl : #ReadOnly;
     totalAmount   @Common.FieldControl : #ReadOnly;
     approver      @Common.FieldControl : #ReadOnly;
+    approvalComments   @Common.FieldControl : #ReadOnly;
+    rejectionComments  @Common.FieldControl : #ReadOnly;
 };
 
 

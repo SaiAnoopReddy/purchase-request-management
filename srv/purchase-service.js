@@ -459,6 +459,7 @@ module.exports = cds.service.impl(async function () {
                 criticality: 2
             })
             .where({ ID });
+            
 
         // Insert Status History
         await INSERT.into(StatusHistory).entries({
@@ -486,6 +487,12 @@ module.exports = cds.service.impl(async function () {
 
         });
 
+
+        req.notify({
+            message: "Purchase Request submitted successfully.",
+            severity: 1
+        });
+
         return await SELECT.one
             .from(PurchaseRequests)
             .where({ ID });
@@ -504,6 +511,7 @@ module.exports = cds.service.impl(async function () {
         console.log("Approve Action Triggered");
 
         const ID = req.params[0].ID;
+        const comments = req.data.approvalComments;
 
         const purchaseRequest = await SELECT.one
             .from(PurchaseRequests)
@@ -523,6 +531,7 @@ module.exports = cds.service.impl(async function () {
                 approver: req.user.id,
                 approvedBy: req.user.id,
                 approvedAt: new Date(),
+                approvalComments: comments,
                 criticality: 3
             })
             .where({ 
@@ -549,6 +558,11 @@ module.exports = cds.service.impl(async function () {
             purchaseRequest_ID: ID,
             message: `Purchase Request ${purchaseRequest.requestNumber} has been Approved.`,
             notificationDate: new Date()
+        });
+
+        req.notify({
+            message: "Purchase Request approved successfully.",
+            severity: 1
         });
 
         return await SELECT.one
@@ -608,6 +622,11 @@ module.exports = cds.service.impl(async function () {
             notificationDate: new Date()
         });
 
+        req.notify({
+            message: "Purchase Request rejected successfully.",
+            severity: 1
+        });
+
         return await SELECT.one
             .from(PurchaseRequests)
             .where({ ID });
@@ -659,6 +678,11 @@ module.exports = cds.service.impl(async function () {
             purchaseRequest_ID: ID,
             message: `Purchase Request ${purchaseRequest.requestNumber} has been Cancelled.`,
             notificationDate: new Date()
+        });
+
+        req.notify({
+            message: "Purchase Request cancelled successfully.",
+            severity: 1
         });
 
         return await SELECT.one

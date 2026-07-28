@@ -8,7 +8,7 @@ service PurchaseService {
         action submitForApproval();
 
         @Core.OperationAvailable: {$edmJson: {$Eq: [{$Path: 'status'}, 'Submitted']}}
-        action approve();
+        action approve(approvalComments : String);
 
         @Core.OperationAvailable: {$edmJson: {$Eq: [{$Path: 'status'}, 'Submitted']}}
         action rejectRequest(comments : String);
