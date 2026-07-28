@@ -1,2 +1,6 @@
-ID,requestNumber,requesterName,department_code,requestDate,currency,totalAmount,status,approver
-11111111-1111-1111-1111-111111111111,PR-2026-000001,Sai,IT,2026-06-25,INR,25000,Draft,Ramesh
+ID,requestNumber,requesterName,department_code,requestDate,currency,totalAmount,status,criticality,approver
+11111111-1111-1111-1111-111111111111,PR-2026-000001,Sai,IT,2026-07-01,INR,32250,Draft,1,Manager
+22222222-2222-2222-2222-222222222222,PR-2026-000002,Rahul,Finance,2026-07-02,INR,12800,Submitted,2,Senior Manager
+33333333-3333-3333-3333-333333333333,PR-2026-000003,Priya,HR,2026-07-03,INR,67500,Approved,3,Director
+44444444-4444-4444-4444-444444444444,PR-2026-000004,Amit,Procurement,2026-07-04,INR,19800,Rejected,4,Senior Manager
+55555555-5555-5555-5555-555555555555,PR-2026-000005,Neha,Manufacturing,2026-07-05,INR,8900,Cancelled,5,Manager
