@@ -22,29 +22,36 @@ annotate service.PurchaseRequests with @(
     UI.LineItem: [
         {
             Value: requestNumber,
-            Label: 'Request Number'
+            Label: 'Request Number',
+            ![@UI.Importance] : #High
         },
         {
             Value: requesterName,
-            Label: 'Requester'
+            Label: 'Requester',
+            ![@UI.Importance] : #High
         },
         {
             Value: department_code,
-            Label: 'Department'
+            Label: 'Department',
+            ![@UI.Importance] : #High
+
         },
         {
             Value: requestDate,
-            Label: 'Request Date'
+            Label: 'Request Date',
+            ![@UI.Importance] : #Medium
         },
         {
             Value: totalAmount,
-            Label: 'Total Amount'
+            Label: 'Total Amount',
+            ![@UI.Importance] : #High
         },
         {
             $Type : 'UI.DataField',
             Value: status,
             Label: 'Status',
-            Criticality: criticality
+            Criticality: criticality,
+            ![@UI.Importance] : #High
         }
     ],
 
